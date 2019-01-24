@@ -1,0 +1,137 @@
+ext {
+
+    android = [SdkVersion       : 27,//编译平台
+               buildToolsVersion: "27.0.3",//gradle工具版本
+               applicationId    : "com.tts.hybird",//包名
+               minSdkVersion    : 18,//最低支持平台
+               targetSdkVersion : 27,//兼容平台
+               versionCode      : 291,//版本号
+               versionName      : "5.4.5debug",//版本名称
+               channelName      : "tts_china",//通道
+               server           : '"debug"',//服务器地址，引号不要动，使用debug，node，releaseLog, release
+               guide            : "false",//是否使用引导页
+               default_welcome  : "true",//是否使用默认欢迎页，非默认的欢迎页为首发定制欢迎页
+               framework        : "arm",//so的cpu架构兼容，arm，all，x86
+               fast_package     : true,//快速打包，关闭lint
+    ]
+
+    manifest_place = [
+            //友盟推送
+            UMENG_PUSH_KEY:"532bd07d56240b2ced0823a7",
+            UMENG_PUSH_SECRET : "1451355b73ccdc59c25754b8505871d6",
+    ]
+
+    dependencies = [
+            //android.support
+            "appcompat-v7"      : "com.android.support:appcompat-v7:27+",
+            "design"            : "com.android.support:design:27+",
+            "recyclerview"      : "com.android.support:recyclerview-v7:27+",
+            "cardview"          : "com.android.support:cardview-v7:27+",
+            "constraint"        : "com.android.support.constraint:constraint-layout:1.1.2",
+            "transition"        : "com.android.support:transition:27+",
+            "v4"                : "com.android.support:support-v4:27+",
+            //json解析Gson
+            "gson"              : "com.google.code.gson:gson:2.8.0",
+            //okhttp
+            "okio"              : 'com.squareup.okio:okio:1.11.0',
+            "okhttp"            : "com.squareup.okhttp:okhttp-android-support:2.7.5",
+            "okhttp3"           : 'com.squareup.okhttp3:okhttp:3.4.1',
+            "okhttp3-url"       : 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1',
+            //zxing
+            "zxing"             : 'com.google.zxing:android-core:3.2.1',
+            //高德地图
+            "amap-location"     : 'com.amap.api:location:latest.integration',
+            "amap-map2d"        : 'com.amap.api:map2d:3.0.0',
+            "amap-map3d"        : 'com.amap.api:3dmap:latest.integration',
+            "amap-search"       : 'com.amap.api:search:6.1.0',
+
+            //imageloader
+            "imagerloader"      : 'com.nostra13.universalimageloader:universal-image-loader:1.9.5',
+
+            "pingyin4j"         : 'com.belerweb:pinyin4j:2.5.0',
+            "picasso"           : 'com.squareup.picasso:picasso:2.5.2',
+            //分包
+            "multidex"          : 'com.android.support:multidex:1.0.1',
+            "wechat"            : 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+',
+            "snackbar"          : 'com.nispok:snackbar:2.11.+',
+            "eventbus"          : 'de.greenrobot:eventbus:2.4.0',
+            "flexbox"           : 'com.google.android:flexbox:0.2.2',
+            "glide"             : 'com.github.bumptech.glide:glide:4.0.0-RC0',
+            "ultra-ptr"         : 'in.srain.cube:ultra-ptr:1.0.11',
+            "permissions"       : 'com.anthonycr.grant:permissions:1.0',
+            "Android-PickerView": 'com.contrarywind:Android-PickerView:3.2.5',
+            //kotlin
+            //butterknife:7.0.1
+
+            "butterknife"       : 'com.jakewharton:butterknife:7.0.1',
+            "imagezoom": "it.sephiroth.android.library.imagezoom:imagezoom:+",
+            //http
+            "httpcore"          : 'org.apache.httpcomponents:httpcore:4.4.1',
+            "httpclient"        : 'org.apache.httpcomponents:httpclient:4.5',
+            "takePhoto"         : 'com.jph.takephoto:takephoto_library:4.0.3',
+            "WheelPicker"       : 'com.github.open-android:WheelPicker:v1.0.0',
+            "AsyncHttp"        : 'com.loopj.android:android-async-http:1.4.9',
+            "HttpClient"        : 'cz.msebera.android:httpclient:4.4.1.1',
+            "SmartRefresh"      : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-4',
+            "SmartRefreshHead"  : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-4',
+            "PhotoView"         : 'com.github.chrisbanes:PhotoView:2.1.3',
+            "Chart"             : 'com.github.PhilJay:MPAndroidChart:v2.2.3',
+
+            //竖向viewpager
+            "vviewpager"        : 'com.github.open-android:ViewPager:0.1.0',
+            //jsbridge
+            "jsbridge"          : 'com.github.lzyzsd:jsbridge:1.0.4',
+            //拖动布局
+            "scrolllayout"      : 'com.yinglan.scrolllayout:scrolllayout:1.0.2',
+
+            //luban图片压缩框架
+            "luban": "top.zibin:Luban:1.1.8",
+            //FlycoTabLayout
+            "FlycoTabLayout": "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            //imagezoom
+            "imagezoom": "it.sephiroth.android.library.imagezoom:imagezoom:+",
+
+            //组件化框架cc
+            "cc"       : 'com.billy.android:cc:2.1.1',
+
+            //畅途网公共资源
+            "ctw-res"           : 'com.tts.ctwres:ctw_res:latest.integration',
+
+            //AOPMonitor框架
+            "AOPMonitor"        : 'com.tts.monitor:AOPMonitor-api:1.4.7-beta16',
+            "AOPMonitor-compiler"        : 'com.tts.monitor:AOPMonitor-compiler:1.0.5',
+
+            //leakCanary
+            "canaryDebug"       : 'com.squareup.leakcanary:leakcanary-android:1.6.2',
+            "canaryRelease"     : 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2',
+            "canaryFragmentDebug": 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2',
+
+            //友盟相关
+            //PushSDK必须依赖基础组件库，所以需要加入对应依赖
+            "umeng-common": 'com.umeng.umsdk:common:2.0.0',
+            //PushSDK必须依赖utdid库，所以需要加入对应依赖
+            "umeng-utdid": 'com.umeng.umsdk:utdid:1.1.5.3',
+            //PushSDK
+            "umeng-push": 'com.umeng.umsdk:push:5.0.2',
+            "umeng-analysis"             : 'com.umeng.umsdk:analytics:8.0.0',
+
+            //小米推送
+            "mipush": 'com.umeng.umsdk:xiaomi-push:3.6.9',
+            "mipushaccs": 'com.umeng.umsdk:xiaomi-umengaccs:1.0.9',
+
+            //华为Push通道
+            "hwbase": 'com.umeng.umsdk:huawei-basetb:2.6.0.301',
+            "hwpush": 'com.umeng.umsdk:huawei-pushtb:2.6.0.301',
+            "hwpushaccs": 'com.umeng.umsdk:huawei-umengaccs:1.1.3',
+
+            //魅族推送
+            "mzpush": 'com.umeng.umsdk:meizu-push:3.8.1',
+            "mzpushaccs": 'com.umeng.umsdk:meizu-umengaccs:1.0.6',
+
+            "roomRuntime"     : 'android.arch.persistence.room:runtime:1.1.1',
+            "coreRoomRuntime": 'android.arch.core:runtime:1.1.1',
+            "persistenceRoomCompiler": 'android.arch.persistence.room:compiler:1.1.1'
+
+
+    ]
+}

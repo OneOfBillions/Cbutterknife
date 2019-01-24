@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion rootProject.ext.android.SdkVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionName rootProject.ext.android.versionName
+        versionCode rootProject.ext.android.versionCode
+
+
+    }
+
+
+
+
+
+
+
+}
+
+dependencies {
+    //其他项目引用了commonutils，可以使用里面api的引用，不能使用里面implementation的引用
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+
+
+//    annotationProcessor "android.arch.persistence.room:$room_version" // use kapt for Kotlin
+
+}
