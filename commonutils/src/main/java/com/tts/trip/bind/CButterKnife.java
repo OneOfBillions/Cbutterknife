@@ -25,7 +25,6 @@ public class CButterKnife {
         throw new AssertionError("No instances.");
     }
 
-    /** DO NOT USE: Exposed for generated code. */
     @SuppressWarnings("UnusedDeclaration") // Used by generated code.
     public enum Finder {
         VIEW {
@@ -136,21 +135,16 @@ public class CButterKnife {
         public abstract Context getContext(Object source);
     }
 
-    /** DO NOT USE: Exposed for generated code. */
     public interface ViewBinder<T> {
         void bind(Finder finder, T target, Object source);
         void unbind(T target);
     }
 
-    /** An action that can be applied to a list of views. */
     public interface Action<T extends View> {
-        /** Apply the action on the {@code view} which is at {@code index} in the list. */
         void apply(T view, int index);
     }
 
-    /** A setter that can apply a value to a list of views. */
     public interface Setter<T extends View, V> {
-        /** Set the {@code value} on the {@code view} which is at {@code index} in the list. */
         void set(T view, V value, int index);
     }
 
@@ -164,80 +158,40 @@ public class CButterKnife {
         @Override public void unbind(Object target) { }
     };
 
-    /** Control whether debug logging is enabled. */
     public static void setDebug(boolean debug) {
         CButterKnife.debug = debug;
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@link Activity}. The current content
-     * view is used as the view root.
-     *
-     * @param target Target activity for view binding.
-     */
+
     public static void bind(Activity target) {
         bind(target, target, Finder.ACTIVITY);
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@link View}. The view and its children
-     * are used as the view root.
-     *
-     * @param target Target view for view binding.
-     */
+
     public static void bind(View target) {
         bind(target, target, Finder.VIEW);
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@link Dialog}. The current content
-     * view is used as the view root.
-     *
-     * @param target Target dialog for view binding.
-     */
+
     public static void bind(Dialog target) {
         bind(target, target, Finder.DIALOG);
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@code target} using the {@code source}
-     * {@link Activity} as the view root.
-     *
-     * @param target Target class for view binding.
-     * @param source Activity on which IDs will be looked up.
-     */
+
     public static void bind(Object target, Activity source) {
         bind(target, source, Finder.ACTIVITY);
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@code target} using the {@code source}
-     * {@link View} as the view root.
-     *
-     * @param target Target class for view binding.
-     * @param source View root on which IDs will be looked up.
-     */
+
     public static void bind(Object target, View source) {
         bind(target, source, Finder.VIEW);
     }
 
-    /**
-     * Bind annotated fields and methods in the specified {@code target} using the {@code source}
-     * {@link Dialog} as the view root.
-     *
-     * @param target Target class for view binding.
-     * @param source Dialog on which IDs will be looked up.
-     */
+
     public static void bind(Object target, Dialog source) {
         bind(target, source, Finder.DIALOG);
     }
 
-    /**
-     * <p>
-     * This should only be used in the {@code onDestroyView} method of a fragment.
-     *
-     * @param target Target class for field unbind.
-     */
     public static void unbind(Object target) {
         Class<?> targetClass = target.getClass();
         try {
@@ -289,25 +243,19 @@ public class CButterKnife {
         return viewBinder;
     }
 
-    /** Apply the specified {@code action} across the {@code list} of views. */
     public static <T extends View> void apply(List<T> list, Action<? super T> action) {
         for (int i = 0, count = list.size(); i < count; i++) {
             action.apply(list.get(i), i);
         }
     }
 
-    /** Set the {@code value} using the specified {@code setter} across the {@code list} of views. */
     public static <T extends View, V> void apply(List<T> list, Setter<? super T, V> setter, V value) {
         for (int i = 0, count = list.size(); i < count; i++) {
             setter.set(list.get(i), value, i);
         }
     }
 
-    /**
-     * Apply the specified {@code value} across the {@code list} of views using the {@code property}.
 
-
-     */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public static <T extends View, V> void apply(List<T> list, Property<? super T, V> setter,
                                                  V value) {
@@ -317,19 +265,16 @@ public class CButterKnife {
         }
     }
 
-    /** Simpler version of {@link View#findViewById(int)} which infers the target type. */
     @SuppressWarnings({ "unchecked", "UnusedDeclaration" }) // Checked by runtime cast. Public API.
     public static <T extends View> T findById(View view, int id) {
         return (T) view.findViewById(id);
     }
 
-    /** Simpler version of {@link Activity#findViewById(int)} which infers the target type. */
     @SuppressWarnings({ "unchecked", "UnusedDeclaration" }) // Checked by runtime cast. Public API.
     public static <T extends View> T findById(Activity activity, int id) {
         return (T) activity.findViewById(id);
     }
 
-    /** Simpler version of {@link Dialog#findViewById(int)} which infers the target type. */
     @SuppressWarnings({ "unchecked", "UnusedDeclaration" }) // Checked by runtime cast. Public API.
     public static <T extends View> T findById(Dialog dialog, int id) {
         return (T) dialog.findViewById(id);

@@ -1,4 +1,14 @@
 apply plugin: 'java-library'
+//apply plugin: 'com.novoda.bintray-release'
+//publish {
+//    repoName = 'com.changtu.development'//远程仓库名字,不指明，默认是上传到maven
+//    userOrg = 'nx357440503'//bintray.com用户名
+//    groupId = 'com.changtu.development'//jcenter上的路径,bintray上创建Package时填写的Version control项
+//    artifactId = 'cbind'//项目名称，bintray上创建Package时填写的Name项
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'cbind'//描述，不重要
+//    website = 'https://github.com/OneOfBillions/Cbutterknife'//网站，最好有，不重要
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

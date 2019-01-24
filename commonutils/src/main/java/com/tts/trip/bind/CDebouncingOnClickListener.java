@@ -2,10 +2,7 @@ package com.tts.trip.bind;
 
 import android.view.View;
 
-/**
- * A {@linkplain View.OnClickListener click listener} that debounces multiple clicks posted in the
- * same frame. A click on one button disables all buttons for that frame.
- */
+
 public abstract class CDebouncingOnClickListener implements View.OnClickListener {
   private static boolean enabled = true;
 
